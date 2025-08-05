@@ -8,42 +8,57 @@
     display: flex;
     align-items: center;
     margin-bottom: $spacing-xxl;
-    gap: $spacing-lg;
+    position: relative;
+}
+
+.back-button {
+    display: flex;
+    align-items: center;
+    gap: $spacing-xs;
+    background: $white;
+    border: none;
+    border-radius: 25px;
+    padding: $spacing-sm $spacing-md;
+    cursor: pointer;
+    box-shadow: $shadow-light;
+    transition: $transition-normal;
+    font-family: $font-family;
+    font-size: $font-size-base;
+    color: $dark-green;
+    font-weight: 500;
     
-    .back-button {
-        display: flex;
-        align-items: center;
-        gap: $spacing-sm;
-        background: $white;
-        border: 2px solid $dark-green;
-        color: $dark-green;
-        padding: $spacing-sm $spacing-md;
-        border-radius: 25px;
-        cursor: pointer;
-        font-family: $font-family;
-        font-size: $font-size-base;
-        font-weight: 500;
-        transition: $transition-normal;
-        text-decoration: none;
-        
-        &:hover {
-            background: $dark-green;
-            color: $white;
-            transform: translateY(-2px);
-            box-shadow: $shadow-medium;
-        }
-        
-        .arrow {
-            font-size: $font-size-large;
-            font-weight: 600;
-        }
+    &:hover {
+        transform: translateX(-3px);
+        box-shadow: $shadow-medium;
+        background: $light-gray;
     }
     
-    .page-title {
-        font-size: $font-size-xxxl;
-        font-weight: 700;
-        color: $dark-green;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    .arrow {
+        font-size: $font-size-large;
+        font-weight: bold;
+    }
+    
+    .back-text {
+        @media (max-width: $mobile) {
+            display: none;
+        }
+    }
+}
+
+.page-title {
+    font-size: $font-size-xxxl;
+    font-weight: 700;
+    color: $dark-green;
+    text-align: center;
+    flex: 1;
+    margin-left: $spacing-sm;
+    padding-right: $spacing-sm;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    
+    @media (max-width: $mobile) {
+        font-size: $font-size-xxl;
+        margin-left: $spacing-sm;
+        padding-right: $spacing-sm;
     }
 }
 
@@ -225,13 +240,7 @@
 // Responsive Design
 @media (max-width: $mobile) {
     .header {
-        flex-direction: column;
-        gap: $spacing-md;
         margin-bottom: $spacing-xl;
-        
-        .page-title {
-            font-size: $font-size-xxl;
-        }
     }
     
     .content-flow {

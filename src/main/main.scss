@@ -60,34 +60,31 @@
 
 .card-image {
     position: relative;
-    height: 300px;
+    height: 500px;
     display: flex;
     align-items: center;
     justify-content: center;
     
     &.cat-image {
-        background: linear-gradient(135deg, #FFB6C1, #FFC0CB);
+        background: url('../assets/cat_boy.png'), linear-gradient(135deg, #FFB6C1, #FFC0CB);
+        background-size: 50%, 100% 100%;
+        background-position: center, center;
+        background-repeat: no-repeat, no-repeat;
+        
         &::before {
-            content: "🐱";
-            font-size: 120px;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 1;
+            display: none;
         }
+        
     }
     
     &.dog-image {
-        background: linear-gradient(135deg, #87CEEB, #B0E0E6);
+        background: url('../assets/griff.png'), linear-gradient(135deg, #87CEEB, #B0E0E6);
+        background-size: 75%, 100% 100%;
+        background-position: center, center;
+        background-repeat: no-repeat, no-repeat;
+        
         &::before {
-            content: "🐕";
-            font-size: 120px;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 1;
+            display: none;
         }
     }
     
@@ -111,7 +108,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(34, 139, 34, 0.6);
+    background: rgba(0, 0, 0, 0.3);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -121,9 +118,9 @@
     h2 {
         color: $white;
         font-size: $font-size-xxl;
-        font-weight: 600;
+        font-weight: 700;
         text-align: center;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
     }
 }
 

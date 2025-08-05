@@ -157,7 +157,7 @@ body {
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: $spacing-lg;
+    padding: $spacing-lg $spacing-lg $spacing-lg $spacing-sm;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -166,7 +166,7 @@ body {
 // Common responsive styles
 @media (max-width: $mobile) {
     .container {
-        padding: $spacing-md;
+        padding: $spacing-md $spacing-md $spacing-md $spacing-sm;
     }
     
     .paw-print-static {
