@@ -116,6 +116,31 @@ The site is configured for deployment to GitHub Pages. The build process creates
 4. Set the source to "GitHub Actions"
 5. The site will automatically deploy when you push to the main branch
 
+### Custom Domain Setup
+
+The site is configured for the custom domain `kat-sitter.com`:
+
+1. **GitHub Configuration**:
+   - Go to repository Settings → Pages
+   - Enter `kat-sitter.com` in the "Custom domain" field
+   - Check "Enforce HTTPS"
+   - Click "Save"
+
+2. **DNS Configuration** (at your domain registrar):
+   - Add A records pointing to GitHub Pages IPs:
+     ```
+     Type: A, Name: @, Value: 185.199.108.153
+     Type: A, Name: @, Value: 185.199.109.153
+     Type: A, Name: @, Value: 185.199.110.153
+     Type: A, Name: @, Value: 185.199.111.153
+     ```
+   - Or add CNAME for www subdomain:
+     ```
+     Type: CNAME, Name: www, Value: yourusername.github.io
+     ```
+
+3. **SSL Certificate**: GitHub will automatically provision an SSL certificate
+
 ### Build Process
 
 The build process includes:
