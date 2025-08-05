@@ -1,0 +1,288 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    margin-bottom: $spacing-xxl;
+    gap: $spacing-lg;
+    
+    .back-button {
+        display: flex;
+        align-items: center;
+        gap: $spacing-sm;
+        background: $white;
+        border: 2px solid $dark-green;
+        color: $dark-green;
+        padding: $spacing-sm $spacing-md;
+        border-radius: 25px;
+        cursor: pointer;
+        font-family: $font-family;
+        font-size: $font-size-base;
+        font-weight: 500;
+        transition: $transition-normal;
+        text-decoration: none;
+        
+        &:hover {
+            background: $dark-green;
+            color: $white;
+            transform: translateY(-2px);
+            box-shadow: $shadow-medium;
+        }
+        
+        .arrow {
+            font-size: $font-size-large;
+            font-weight: 600;
+        }
+    }
+    
+    .page-title {
+        font-size: $font-size-xxxl;
+        font-weight: 700;
+        color: $dark-green;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    }
+}
+
+.main-content {
+    flex: 1;
+}
+
+.content-flow {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-xl;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.gallery-item {
+    background: $white;
+    border-radius: 15px;
+    padding: $spacing-lg;
+    text-align: center;
+    box-shadow: $shadow-medium;
+    transition: $transition-normal;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    
+    &:hover {
+        transform: translateY(-5px);
+        box-shadow: $shadow-heavy;
+    }
+    
+    .photo-container {
+        width: 100%;
+        max-width: 600px;
+        height: 385px;
+        margin: 0 auto;
+        border-radius: 10px;
+        position: relative;
+        overflow: hidden;
+        box-shadow: $shadow-medium;
+        
+        // Portrait ratio (5x7) - taller than wide
+        &.portrait {
+            height: 550px;
+            max-width: 600px; // Same width as testimonials
+        }
+        
+        // Landscape ratio (7x5) - wider than tall
+        &.landscape {
+            height: 429px; // 600 * 5/7 = 429
+            max-width: 600px;
+        }
+        
+        .gallery-photo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            transition: $transition-normal;
+        }
+        
+        &:hover .gallery-photo {
+            transform: scale(1.05);
+        }
+        
+        // Make photos clickable
+        .gallery-photo {
+            cursor: pointer;
+        }
+    }
+}
+
+// Photo Modal Styles
+.photo-modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    backdrop-filter: blur(5px);
+}
+
+.photo-modal-content {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: photoModalSlideIn 0.3s ease;
+}
+
+@keyframes photoModalSlideIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.photo-close {
+    color: $white;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 35px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: $transition-fast;
+    z-index: 2001;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    
+    &:hover {
+        color: #ccc;
+        background: rgba(0, 0, 0, 0.7);
+    }
+}
+
+#expanded-photo {
+    max-width: 90%;
+    max-height: 90vh;
+    object-fit: contain;
+    border-radius: 10px;
+    box-shadow: $shadow-heavy;
+}
+
+.testimonial-card {
+    background: $white;
+    border-radius: 15px;
+    padding: $spacing-xl;
+    text-align: center;
+    box-shadow: $shadow-medium;
+    transition: $transition-normal;
+    
+    &:hover {
+        transform: translateY(-3px);
+        box-shadow: $shadow-heavy;
+    }
+    
+    .testimonial-avatar {
+        font-size: 80px;
+        margin-bottom: $spacing-md;
+        opacity: 0.8;
+    }
+    
+    .testimonial-text {
+        font-size: $font-size-large;
+        color: $gray;
+        line-height: 1.6;
+        margin-bottom: $spacing-md;
+        font-style: italic;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .testimonial-author {
+        font-size: $font-size-base;
+        color: $dark-green;
+        font-weight: 600;
+    }
+}
+
+// Responsive Design
+@media (max-width: $mobile) {
+    .header {
+        flex-direction: column;
+        gap: $spacing-md;
+        margin-bottom: $spacing-xl;
+        
+        .page-title {
+            font-size: $font-size-xxl;
+        }
+    }
+    
+    .content-flow {
+        gap: $spacing-lg;
+        padding: 0 $spacing-sm;
+    }
+    
+    .gallery-item {
+        padding: $spacing-md;
+        max-width: 320px;
+        
+        .photo-container {
+            width: 100%;
+            max-width: 320px;
+            height: 196px; // 280 * 7/5 = 392, but we'll use 196 for mobile
+            
+            &.portrait {
+                height: 392px; // 280 * 7/5 = 392 (correct 5:7 ratio)
+                max-width: 320px; // Same width as testimonials
+            }
+            
+            &.landscape {
+                height: 229px; // 320 * 5/7 = 229
+                max-width: 320px;
+            }
+            
+
+        }
+    }
+    
+    .testimonial-card {
+        padding: $spacing-lg;
+        
+        .testimonial-avatar {
+            font-size: 60px;
+        }
+        
+        .testimonial-text {
+            font-size: $font-size-base;
+        }
+    }
+}
+
+@media (min-width: $tablet) {
+    .content-flow {
+        max-width: 700px;
+    }
+}
+
+@media (min-width: $desktop) {
+    .content-flow {
+        max-width: 800px;
+    }
+} 

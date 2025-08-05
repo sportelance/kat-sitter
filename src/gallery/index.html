@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery & Testimonials - Kat Sitter</title>
+    <link rel="stylesheet" href="./gallery.scss">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="paw-prints-bg">
+        <div class="paw-print-static"></div>
+        <div class="paw-print-static"></div>
+        <div class="paw-print-static"></div>
+        <div class="paw-print-static"></div>
+        <div class="paw-print-static"></div>
+        <div class="paw-print-static"></div>
+        <div class="paw-print-static"></div>
+        <div class="paw-print-static"></div>
+        <div class="paw-print-static"></div>
+        <div class="paw-print-static"></div>
+        <div class="paw-print-static"></div>
+        <div class="paw-print-static"></div>
+        <div class="paw-print-static"></div>
+        <div class="paw-print-static"></div>
+        <div class="paw-print-static"></div>
+        <div class="paw-print-static"></div>
+        <div class="paw-print-static"></div>
+        <div class="paw-print-static"></div>
+        <div class="paw-print-static"></div>
+        <div class="paw-print-static"></div>
+    </div>
+    
+    <div class="container">
+        <header class="header">
+            <button class="back-button" id="back-button">
+                <span class="arrow">←</span>
+                Back
+            </button>
+            <h1 class="page-title">Gallery & Testimonials</h1>
+        </header>
+        
+        <main class="main-content">
+            <div class="content-flow">
+                <div class="gallery-item">
+                    <div class="photo-container portrait">
+                        <img src="../assets/ambrosia.jpg" alt="Ambrosia" class="gallery-photo">
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-avatar">👤</div>
+                    <p class="testimonial-text">"Kat was amazing with our cats! Very professional and caring."</p>
+                    <p class="testimonial-author">- Sarah M.</p>
+                </div>
+                
+                <div class="gallery-item">
+                    <div class="photo-container landscape">
+                        <img src="../assets/kaito.jpg" alt="Kaito" class="gallery-photo">
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-avatar">👤</div>
+                    <p class="testimonial-text">"Our dog loves Kat! She's reliable and trustworthy."</p>
+                    <p class="testimonial-author">- Mike R.</p>
+                </div>
+                
+                <div class="gallery-item">
+                    <div class="photo-container portrait">
+                        <img src="../assets/kaito2.jpg" alt="Kaito 2" class="gallery-photo">
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-avatar">👤</div>
+                    <p class="testimonial-text">"Highly recommend Kat for all your pet sitting needs!"</p>
+                    <p class="testimonial-author">- Lisa T.</p>
+                </div>
+                
+                <div class="gallery-item">
+                    <div class="photo-container landscape">
+                        <img src="../assets/remy.jpg" alt="Remy" class="gallery-photo">
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-avatar">👤</div>
+                    <p class="testimonial-text">"Kat goes above and beyond for our pets. We couldn't be happier!"</p>
+                    <p class="testimonial-author">- David K.</p>
+                </div>
+                
+                <div class="gallery-item">
+                    <div class="photo-container portrait">
+                        <img src="../assets/riley.jpg" alt="Riley" class="gallery-photo">
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Photo Modal -->
+    <div class="photo-modal" id="photo-modal">
+        <div class="photo-modal-content">
+            <span class="photo-close">&times;</span>
+            <img src="" alt="Expanded photo" id="expanded-photo">
+        </div>
+    </div>
+
+    <script type="module" src="./gallery.ts"></script>
+</body>
+</html> 

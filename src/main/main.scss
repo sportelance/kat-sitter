@@ -1,0 +1,238 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+
+.header {
+    text-align: center;
+    margin-bottom: $spacing-xxl;
+    
+    .logo {
+        font-size: $font-size-xxxl;
+        font-weight: 700;
+        color: $dark-green;
+        margin-bottom: $spacing-sm;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    
+    .tagline {
+        font-size: $font-size-large;
+        color: $gray;
+        font-weight: 300;
+    }
+}
+
+.main-content {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.service-cards {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-xl;
+    width: 100%;
+    max-width: 600px;
+}
+
+.service-card {
+    background: $white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: $shadow-medium;
+    transition: $transition-normal;
+    cursor: pointer;
+    
+    &:hover {
+        transform: translateY(-5px);
+        box-shadow: $shadow-heavy;
+        
+        .overlay {
+            background: rgba(34, 139, 34, 0.8);
+        }
+    }
+}
+
+.card-image {
+    position: relative;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    &.cat-image {
+        background: linear-gradient(135deg, #FFB6C1, #FFC0CB);
+        &::before {
+            content: "🐱";
+            font-size: 120px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+        }
+    }
+    
+    &.dog-image {
+        background: linear-gradient(135deg, #87CEEB, #B0E0E6);
+        &::before {
+            content: "🐕";
+            font-size: 120px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+        }
+    }
+    
+    &.human-image {
+        background: linear-gradient(135deg, #DDA0DD, #E6E6FA);
+        &::before {
+            content: "👤";
+            font-size: 120px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+        }
+    }
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(34, 139, 34, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: $transition-normal;
+    z-index: 2;
+    
+    h2 {
+        color: $white;
+        font-size: $font-size-xxl;
+        font-weight: 600;
+        text-align: center;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+}
+
+// Modal Styles
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    background-color: $white;
+    margin: 5% auto;
+    padding: $spacing-xl;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 600px;
+    position: relative;
+    box-shadow: $shadow-heavy;
+    animation: modalSlideIn 0.3s ease;
+}
+
+@keyframes modalSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.close {
+    color: $gray;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: $transition-fast;
+    
+    &:hover {
+        color: $black;
+    }
+}
+
+.services-content {
+    margin-top: $spacing-lg;
+    
+    p {
+        font-size: $font-size-base;
+        line-height: 1.6;
+        color: $gray;
+        margin-bottom: $spacing-sm;
+    }
+}
+
+// Responsive Design
+@media (max-width: $mobile) {
+    .container {
+        padding: $spacing-md;
+    }
+    
+    .header {
+        margin-bottom: $spacing-xl;
+        
+        .logo {
+            font-size: $font-size-xxl;
+        }
+        
+        .tagline {
+            font-size: $font-size-base;
+        }
+    }
+    
+    .service-cards {
+        gap: $spacing-lg;
+    }
+    
+    .card-image {
+        height: 250px;
+        
+        &.cat-image::before,
+        &.dog-image::before,
+        &.human-image::before {
+            font-size: 80px;
+        }
+    }
+    
+    .overlay h2 {
+        font-size: $font-size-xl;
+    }
+    
+    .modal-content {
+        margin: 10% auto;
+        padding: $spacing-lg;
+        width: 95%;
+    }
+}
+
+@media (min-width: $tablet) {
+    .service-cards {
+        max-width: 800px;
+        gap: $spacing-xl;
+    }
+} 
