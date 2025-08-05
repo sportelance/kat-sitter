@@ -4,7 +4,14 @@ export default defineConfig({
   root: 'src',
   build: {
     outDir: '../dist',
-    emptyOutDir: true
+    emptyOutDir: true,
+    rollupOptions: {
+      input: {
+        main: 'src/index.html',
+        contact: 'src/contact/index.html',
+        gallery: 'src/gallery/index.html'
+      }
+    }
   },
   server: {
     port: 3000,

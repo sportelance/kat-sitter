@@ -106,10 +106,47 @@ The project includes Firebase configuration setup in `src/firebase/config.ts`. T
 
 ## Deployment
 
-### GitHub Pages
+The site is configured for deployment to GitHub Pages. The build process creates a `dist` folder that contains all the necessary files for deployment.
+
+### GitHub Pages Setup
+
+1. Push your code to a GitHub repository
+2. Go to your repository settings
+3. Navigate to "Pages" in the sidebar
+4. Set the source to "GitHub Actions"
+5. The site will automatically deploy when you push to the main branch
+
+### Build Process
+
+The build process includes:
+- TypeScript compilation
+- Vite build (main page)
+- Copying contact and gallery pages to dist folder
+- All assets are optimized and bundled
+
+### File Structure in dist/
+
+```
+dist/
+├── index.html          # Main landing page
+├── contact/
+│   ├── index.html      # Contact page
+│   ├── contact.ts      # Contact page TypeScript
+│   └── contact.scss    # Contact page styles
+├── gallery/
+│   ├── index.html      # Gallery page
+│   ├── gallery.ts      # Gallery page TypeScript
+│   └── gallery.scss    # Gallery page styles
+└── assets/
+    ├── *.js            # Bundled JavaScript
+    ├── *.css           # Bundled CSS
+    └── *.png           # Optimized images
+```
+
+### Manual Deployment
 1. Build the project: `npm run build`
-2. Push the `dist` folder to your GitHub repository
-3. Configure GitHub Pages to serve from the `dist` directory
+2. The `dist` folder contains all files ready for deployment
+3. Upload the contents of `dist` to any static hosting service
 
 ### Other Hosting
 The built files in the `dist` directory can be deployed to any static hosting service.
